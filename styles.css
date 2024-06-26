@@ -1,0 +1,149 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  background-color: #f9f9f9;
+  width: 300px; /* Adjusted width */
+  margin: 0 auto;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%; /* Make button take full width */
+  max-width: 260px; /* Adjusted to fit within container */
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.status-message {
+  margin-top: 10px;
+  padding: 10px;
+  display: none;
+  font-size: 14px;
+}
+
+.status-message.success {
+  color: green;
+}
+
+.status-message.error {
+  color: red;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Custom styles for the prefix slider */
+.prefix-switch .slider {
+  background-color: #4CAF50;
+}
+
+.prefix-switch input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+.prefix-switch .slider:before {
+  transform: translateX(0);
+}
+
+.prefix-switch input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.update-message {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.update-message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.update-message a:hover {
+  text-decoration: underline;
+}
+
+.update-available {
+  color: red;
+  font-weight: bold;
+}

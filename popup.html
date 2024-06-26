@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Generátor záhlaví rozhodnutí NSS</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="popup.js"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="extractButton">Extrahovat informace</button>
+    <p class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="toggleFormat" checked>
+        <span class="slider round"></span>
+      </label>
+      <span>Zahrnout "v řízení"</span>
+    </p>
+    <p class="toggle-container">
+      <span>čj.</span>
+      <label class="switch">
+        <input type="checkbox" id="prefixFormat">
+        <span class="slider round"></span>
+      </label>
+      <span>č. j.</span>
+    </p>
+    <p class="toggle-container">
+      <span>žalobce</span>
+      <label class="switch">
+        <input type="checkbox" id="plaintiffDefendantFormat">
+        <span class="slider round"></span>
+      </label>
+      <span>navrhovatel</span>
+    </p>
+    <div id="statusMessage" class="status-message"></div>
+    <footer>
+      <p>Vytvořil <a href="https://otflorian.com" class="external-link">Oldřich Tristan Florian</a></p>
+      <p><a href="https://github.com/OTFlorian/isnss-extractor/" class="external-link">Stránka projektu a seznam problémů</a></p>
+      <p>Verze 0.1 (26. 6. 2024)</p>
+      <p><a href="https://buymeacoffee.com/otflorian" class="external-link">Přispět na kávu</a></p>
+      <div id="updateMessage" class="update-message"></div>
+    </footer>
+  </div>
+</body>
+</html>
