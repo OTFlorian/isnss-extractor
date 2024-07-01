@@ -1,18 +1,22 @@
 # Generátor záhlaví rozhodnutí Nejvyššího správního soudu
 
 ## Popis
+
 Toto rozšíření prohlížeče extrahuje informace z věcí soudního výkonu (SVInfo) v ISNSS a zkopíruje je do schránky pro následné vložení (Ctrl+V) do záhlaví rozhodnutí.
 
 ## Autor
+
 Autorem rozšíření je [JUDr. Oldřich Tristan Florian, Ph.D.](https://otflorian.com)
 
 ## Funkce
+
 - Extrahuje informace z případů vedených u Nejvyššího správního soudu.
 - Kopíruje informace do schránky pro následné vložení.
 - Umožňuje uživatelům přizpůsobit formát extrahovaných informací.
 - Zpracování probíhá na počítači uživatele. Žádné informace o věci se neposílají na vzdálený server.
 
 ## Známé problémy
+
 - Jména advokátů nejsou skloňována.
 - Nedetekuje se, zda se jedná o advokáta, nebo advokátku.
 - Adresy jsou ve stejném tvaru jako v ISNSS, obsahují tedy PSČ a další nepotřebné informace.
@@ -26,7 +30,21 @@ Pokud přijdete na další problémy, otevřete prosím issue v [GitHub repozit�
 
 ## Instalace
 
-### Chrome
+### Stabilní verze (pro Chrome i Edge)
+
+1. Přidejte rozšíření prostřednictvím [Chrome Web Store](https://chromewebstore.google.com/detail/nobghfommjhpmomgocbimojglpccmech).
+2. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
+3. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
+
+Aktualizace na nejnovější stabilní verzi probíhá automaticky. V případě, že je k dispozici vývojová verze, která je novější, se vám ve vyskakovacím okně objeví upozornění. Zpravidla by se však nejnovější vývojová verze měla do několika dní stát nejnovější stabilní verzí, pokud se neobjeví nějaké problémy.
+
+### Vývojová verze (pro zkušenější uživatele)
+
+Tato verze rozšíření je určena především pro zkušené uživatele, kteří jsou schopni zvládat případné chyby a problémy vznikající v průběhu vývoje. Vývojová verze obsahuje nejnovější funkce a opravy chyb, které však mohou být nestabilní nebo neúplné.
+
+Tuto verzi musíte ručně aktualizovat. V případě, že je k dispozici novější verze, se vám ve vyskakovacím okně objeví upozornění.
+
+#### Chrome
 
 1. Stáhněte si nejnovější verzi rozšíření z [GitHub repozitáře](https://github.com/OTFlorian/isnss-extractor/archive/refs/heads/main.zip).
 2. Rozbalte stažený soubor.
@@ -36,17 +54,20 @@ Pokud přijdete na další problémy, otevřete prosím issue v [GitHub repozit�
 6. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
 7. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
 
-### Edge
+#### Edge
+
+Upozornění: V defaultní instalaci prohlížeče Edge na pracovních počítačích nefunguje funkce `Načíst nezabalené`, která je potřebná pro instalaci rozšíření.
 
 1. Stáhněte si nejnovější verzi rozšíření z [GitHub repozitáře](https://github.com/OTFlorian/isnss-extractor/archive/refs/heads/main.zip).
 2. Rozbalte stažený soubor.
 3. Otevřete Edge a přejděte na `edge://extensions/`.
 4. Zapněte `Režim pro vývojáře` v levém dolním rohu.
-5. Klikněte na `Načíst rozbalené` a vyberte rozbalenou složku rozšíření.
+5. Klikněte na `Načíst nezabalené` a vyberte rozbalenou složku rozšíření.
 6. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
 7. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
 
 ## Použití
+
 1. Otevřete stránku, která obsahuje informace o věci soudního výkonu (SVInfo) v ISNSS.
     - Například [isnss/main.aspx?cls=SVInfo&pId=76691](http://isnss/main.aspx?cls=SVInfo&pId=76691)
 2. Klikněte na ikonu rozšíření vedle adresního řádku pro zobrazení vyskakovacího okna rozšíření.
@@ -62,7 +83,7 @@ Pokud přijdete na další problémy, otevřete prosím issue v [GitHub repozit�
 - `content.js`: Skript, který extrahuje informace ze stránky
 - `popup.html`: HTML soubor pro vyskakovací okno rozšíření
 - `popup.js`: JavaScript soubor pro vyskakovací okno rozšíření
-- `styles.css`: CSS styly pro popup okno rozšíření
+- `styles.css`: CSS styly pro vyskakovací okno rozšíření
 
 ## Licence
 Tento projekt je licencován pod vlastní licencí. Viz soubor [LICENSE](./LICENSE) pro více informací.
