@@ -102,7 +102,13 @@ function formatDefendantDecisions(defendantDecisions, defendants, prefixFormat) 
         const decision = defendantDecisions[0];
         const caseNumberPart = decision.caseNumber !== "nevyplněno" ? `sp. zn. ${decision.caseNumber}, ` : "";
         const defendant = defendants.find(d => d.name === decision.defendant);
-        return `, proti rozhodnutí žalovaného${defendants.length > 1 ? ` ${defendant.label}` : ''} ze dne ${decision.date}, ${caseNumberPart}${prefixFormat} ${decision.ref},`;
+        if (decision.ref === "nezákonný zásah" || decision.ref === "nezákoný zásah") {
+            return `, o žalobě na ochranu před nezákonným zásahem žalovaného${defendants.length > 1 ? ` ${defendant.label}` : ''},`;
+        } else if (decision.ref === "ochrana proti nečinnosti") {
+            return `, ve věci ochrany proti nečinnosti žalovaného${defendants.length > 1 ? ` ${defendant.label}` : ''},`;
+        } else {
+            return `, proti rozhodnutí žalovaného${defendants.length > 1 ? ` ${defendant.label}` : ''} ze dne ${decision.date}, ${caseNumberPart}${prefixFormat} ${decision.ref},`;
+        }
     } else {
         return formatMultipleDefendantDecisions(defendantDecisions, defendants, prefixFormat);
     }

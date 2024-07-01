@@ -21,7 +21,6 @@ Autorem rozšíření je [JUDr. Oldřich Tristan Florian, Ph.D.](https://otflori
   - Například žalobkyně se ukazuje jako žalobce.
 - Bez větších potíží zvládá pouze standardní případy.
   - V případě návrhů na zrušení opatření obecné povahy jsou tato opatření nesprávně označena.
-  - Nesprávně jsou označené taky například případy nezákonného zásahu nebo nečinnosti správního orgánu.
 
 Pokud přijdete na další problémy, otevřete prosím issue v [GitHub repozitáři](https://github.com/OTFlorian/isnss-extractor/issues), případně mi napište na e-mailovou adresu, kterou najdete na [mé osobní stránce](https://otflorian.com).
 
