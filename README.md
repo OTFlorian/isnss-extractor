@@ -36,13 +36,13 @@ Pokud přijdete na další problémy, otevřete prosím issue v [GitHub repozit�
 2. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
 3. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
 
-Aktualizace na nejnovější stabilní verzi probíhá automaticky. V případě, že je k dispozici vývojová verze, která je novější, se vám ve vyskakovacím okně objeví upozornění. Zpravidla by se však nejnovější vývojová verze měla do několika dní stát nejnovější stabilní verzí, pokud se neobjeví nějaké problémy.
+Aktualizace na nejnovější stabilní verzi probíhá automaticky.
 
 ### Vývojová verze (pro zkušenější uživatele)
 
 Tato verze rozšíření je určena především pro zkušené uživatele, kteří jsou schopni zvládat případné chyby a problémy vznikající v průběhu vývoje. Vývojová verze obsahuje nejnovější funkce a opravy chyb, které však mohou být nestabilní nebo neúplné.
 
-Tuto verzi musíte ručně aktualizovat. V případě, že je k dispozici novější verze, se vám ve vyskakovacím okně objeví upozornění.
+Tuto verzi musíte ručně aktualizovat a pravidelně kontrolovat nové verze v repozitáři.
 
 #### Chrome
 
