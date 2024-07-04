@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Generátor záhlaví rozhodnutí Nejvyššího správního soudu",
-  "version": "0.3",
+  "version": "0.4",
   "description": "Extrahuje informace z věcí soudního výkonu (SVInfo) v ISNSS a zkopíruje je do schránky.",
   "author": "Oldřich Tristan Florian",
   "permissions": [
