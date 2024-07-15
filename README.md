@@ -17,8 +17,8 @@ Autorem rozšíření je [JUDr. Oldřich Tristan Florian, Ph.D.](https://otflori
 
 ## Známé problémy
 
-- Jména advokátů nejsou skloňována.
 - Nedetekuje se, zda se jedná o advokáta, nebo advokátku.
+- Jména účastníků nejsou ztučněná.
 - Adresy jsou ve stejném tvaru jako v ISNSS, obsahují tedy PSČ a další nepotřebné informace.
   - Některé informace pak mnohdy chybí, například městská část Prahy.
 - Pro označení účastníků je standardní mužský rod, označení v ženském rodě je potřeba vepsat ručně.
@@ -30,41 +30,12 @@ Pokud přijdete na další problémy, otevřete prosím issue v [GitHub repozit�
 
 ## Instalace
 
-### Stabilní verze (pro Chrome i Edge)
-
-1. Přidejte rozšíření prostřednictvím [Chrome Web Store](https://chromewebstore.google.com/detail/nobghfommjhpmomgocbimojglpccmech).
+1. Přidejte rozšíření prostřednictvím [Chrome Web Store](https://chromewebstore.google.com/detail/nobghfommjhpmomgocbimojglpccmech) do vašeho prohlížeče.
+    - Preferovaným prohlížečem na NSS je Microsoft Edge.
 2. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
 3. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
 
-Aktualizace na nejnovější stabilní verzi probíhá automaticky.
-
-### Vývojová verze (pro zkušenější uživatele)
-
-Tato verze rozšíření je určena především pro zkušené uživatele, kteří jsou schopni zvládat případné chyby a problémy vznikající v průběhu vývoje. Vývojová verze obsahuje nejnovější funkce a opravy chyb, které však mohou být nestabilní nebo neúplné.
-
-Tuto verzi musíte ručně aktualizovat a pravidelně kontrolovat nové verze v repozitáři.
-
-#### Chrome
-
-1. Stáhněte si nejnovější verzi rozšíření z [GitHub repozitáře](https://github.com/OTFlorian/isnss-extractor/archive/refs/heads/main.zip).
-2. Rozbalte stažený soubor.
-3. Otevřete Chrome a přejděte na `chrome://extensions/`.
-4. Zapněte `Režim pro vývojáře` v pravém horním rohu.
-5. Klikněte na `Načíst rozbalené` a vyberte rozbalenou složku rozšíření.
-6. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
-7. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
-
-#### Edge
-
-Upozornění: V defaultní instalaci prohlížeče Edge na pracovních počítačích nefunguje funkce `Načíst nezabalené`, která je potřebná pro instalaci rozšíření.
-
-1. Stáhněte si nejnovější verzi rozšíření z [GitHub repozitáře](https://github.com/OTFlorian/isnss-extractor/archive/refs/heads/main.zip).
-2. Rozbalte stažený soubor.
-3. Otevřete Edge a přejděte na `edge://extensions/`.
-4. Zapněte `Režim pro vývojáře` v levém dolním rohu.
-5. Klikněte na `Načíst nezabalené` a vyberte rozbalenou složku rozšíření.
-6. Klikněte na ikonu puzzle (rozšíření) vedle adresního řádku.
-7. Najděte své rozšíření a klikněte na ikonu `Připnout`, aby se zobrazilo vedle adresního řádku.
+Aktualizace probíhá automaticky.
 
 ## Použití
 

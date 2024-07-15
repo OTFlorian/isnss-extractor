@@ -30,6 +30,10 @@ This software is authored by Oldřich Tristan Florian. For inquiries regarding c
 
 The icon used in this software (a photo of Josef Baxa, the founding father of the Supreme Administrative Court) was created by Jiří Brožek and is licensed under the Creative Commons Attribution-Share Alike 4.0 International (CC BY-SA 4.0) license.
 
+### Inflection Code License
+
+The part of the code intended for inflection (a class called Inflection and its methods) is a php library licensed under the LGPL license, but rewritten by the author (Oldřich Tristan Florian) into javascript. The authors of the original library are Pavel Sedlák (patterns) and Mikuláš Dítě (algorithm). The inflection class is therefore excluded from this license.
+
 ## Why This License?
 
 I have chosen this license to ensure that the software is used and maintained in a way that aligns with its original purpose and to provide continuity for the users, particularly the Supreme Administrative Court employees. As I will be maintaining this software for the duration of my employment at the Supreme Administrative Court, I want to ensure that any changes, commercial uses, or distributions are properly managed and authorized. This approach helps maintain the integrity of the software and ensures that any future developments are done with proper oversight.
