@@ -18,6 +18,8 @@ Autorem rozšíření je [JUDr. Oldřich Tristan Florian, Ph.D.](https://otflori
 ## Známé problémy
 
 - Nedetekuje se, zda se jedná o advokáta, nebo advokátku.
+- Skloňuje i nepřechýlená ženská příjmení advokátek.
+  - Správně by však měla zůstat v prvním pádě.
 - Jména účastníků nejsou ztučněná.
 - Adresy jsou ve stejném tvaru jako v ISNSS, obsahují tedy PSČ a další nepotřebné informace.
   - Některé informace pak mnohdy chybí, například městská část Prahy.
