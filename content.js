@@ -2,7 +2,7 @@
  * The main part of the ISNSS Extractor.
  * 
  * Author: Oldřich Tristan Florian
- * Website: https://otristan.com
+ * Website: https://otflorian.com
  * 
  */
 
@@ -431,18 +431,30 @@ function getTextContent(doc, selector) {
 
 /**
  * Fetch the attorney details of a person.
- * @param {string} pId - The person ID.
- * @returns {object} - The fetched attorney details.
+ * @param {string} pId - The person ID of the participant (plaintiff/defendant) for which we want the attorney.
+ * @returns {object} - The fetched attorney details or a placeholder if the attorney is a legal person.
  */
 async function fetchAttorney(pId) {
     const attorneyRows = document.querySelectorAll('#ctl00_PlaceHolderMain_ctl00_tabMain_TabPanel3_po8_grdSVRolekUcastnikoviVeSporu .ms-vb2');
     for (const row of attorneyRows) {
         if (isMatchingAttorney(row, pId)) {
             const attorneyLink = row.querySelector('td:nth-child(4) a').getAttribute('href');
-            const attorneyId = new URLSearchParams(attorneyLink.split('?')[1]).get('pId');
-            return await fetchPersonDetails('JRFyzickaOsobaInfo', attorneyId);
+            const params = new URLSearchParams(attorneyLink.split('?')[1]);
+            const attorneyId = params.get('pId');
+            const attorneyCls = params.get('cls');
+
+            if (attorneyCls === 'JRFyzickaOsobaInfo') {
+                // Attorney is a physical person, so fetch normal details
+                return await fetchPersonDetails(attorneyCls, attorneyId);
+            } else {
+                // Attorney is a legal person (or unknown), return placeholder
+                return {
+                    isLegalAttorney: true  // Used later in formatAttorneyText
+                };
+            }
         }
     }
+    // Default empty attorney if none found
     return { firstName: "", lastName: "", address: "", titlesBefore: "", titlesAfter: "" };
 }
 
@@ -500,7 +512,12 @@ function formatPhysicalPersonText(person, commonNationality, commonAttorney) {
     if (person.address && person.address !== 'adresa neznámá') {
         text += `, bytem ${person.address}`;
     }
-    if (!commonAttorney && person.attorney.firstName) {
+    // Check if there's no common attorney, and this party's attorney
+    // is either a physical person (has a first name) OR is a legal attorney (isLegalAttorney = true).
+    if (
+      !commonAttorney &&
+      (person.attorney.firstName || person.attorney.isLegalAttorney)
+    ) {
         text += `, zast. ${formatAttorneyText(person.attorney)}`;
     }
     return text;
@@ -521,7 +538,12 @@ function formatLegalPersonText(person, commonNationality, commonAttorney) {
     if (person.address && person.address !== 'adresa neznámá') {
         text += `, se sídlem ${person.address}`;
     }
-    if (!commonAttorney && person.attorney.firstName) {
+    // Check if there's no common attorney, and this party's attorney
+    // is either a physical person (has a first name) OR is a legal attorney (isLegalAttorney = true).
+    if (
+      !commonAttorney &&
+      (person.attorney.firstName || person.attorney.isLegalAttorney)
+    ) {
         text += `, zast. ${formatAttorneyText(person.attorney)}`;
     }
     return text;
@@ -541,18 +563,29 @@ function formatOnePersonAuthorityText(person, commonAttorney) {
     if (person.address && person.address !== 'adresa neznámá') {
         text += `, se sídlem ${person.address}`;
     }
-    if (!commonAttorney && person.attorney.firstName) {
+    // Check if there's no common attorney, and this party's attorney
+    // is either a physical person (has a first name) OR is a legal attorney (isLegalAttorney = true).
+    if (
+      !commonAttorney &&
+      (person.attorney.firstName || person.attorney.isLegalAttorney)
+    ) {
         text += `, zast. ${formatAttorneyText(person.attorney)}`;
     }
     return text;
 }
 
 /**
- * Format the text of an attorney.
- * @param {object} attorney - The attorney details.
- * @returns {string} - The formatted attorney text.
+ * Format the text of an attorney for display.
+ * @param {object} attorney - The attorney details object returned by fetchAttorney.
+ * @returns {string} - The formatted attorney text, or a placeholder if `isLegalAttorney` is true.
  */
 function formatAttorneyText(attorney) {
+    // If the attorney is identified as a legal person (firm/office), return the placeholder
+    if (attorney.isLegalAttorney) {
+        return '!!! NAMÍSTO ADVOKÁTA JE V ISNSS ZADANÁ JEHO KANCELÁŘ !!!';
+    }
+
+    // Otherwise, proceed with the existing logic for physical persons
     let firstName = attorney.firstName;
     let lastName = attorney.lastName;
 
@@ -562,7 +595,7 @@ function formatAttorneyText(attorney) {
             const inflectedFirstName = inflector.inflect(firstName);
             const inflectedLastName = inflector.inflect(lastName);
 
-            // Use the 7th form (instrumental case) from the inflection result
+            // Use the 7th form (instrumental) from the inflection result
             firstName = inflectedFirstName[7];
             lastName = inflectedLastName[7];
         } else {
