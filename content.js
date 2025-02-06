@@ -512,7 +512,12 @@ function formatPhysicalPersonText(person, commonNationality, commonAttorney) {
     if (person.address && person.address !== 'adresa neznámá') {
         text += `, bytem ${person.address}`;
     }
-    if (!commonAttorney && person.attorney.firstName) {
+    // Check if there's no common attorney, and this party's attorney
+    // is either a physical person (has a first name) OR is a legal attorney (isLegalAttorney = true).
+    if (
+      !commonAttorney &&
+      (person.attorney.firstName || person.attorney.isLegalAttorney)
+    ) {
         text += `, zast. ${formatAttorneyText(person.attorney)}`;
     }
     return text;
@@ -533,7 +538,12 @@ function formatLegalPersonText(person, commonNationality, commonAttorney) {
     if (person.address && person.address !== 'adresa neznámá') {
         text += `, se sídlem ${person.address}`;
     }
-    if (!commonAttorney && person.attorney.firstName) {
+    // Check if there's no common attorney, and this party's attorney
+    // is either a physical person (has a first name) OR is a legal attorney (isLegalAttorney = true).
+    if (
+      !commonAttorney &&
+      (person.attorney.firstName || person.attorney.isLegalAttorney)
+    ) {
         text += `, zast. ${formatAttorneyText(person.attorney)}`;
     }
     return text;
@@ -553,7 +563,12 @@ function formatOnePersonAuthorityText(person, commonAttorney) {
     if (person.address && person.address !== 'adresa neznámá') {
         text += `, se sídlem ${person.address}`;
     }
-    if (!commonAttorney && person.attorney.firstName) {
+    // Check if there's no common attorney, and this party's attorney
+    // is either a physical person (has a first name) OR is a legal attorney (isLegalAttorney = true).
+    if (
+      !commonAttorney &&
+      (person.attorney.firstName || person.attorney.isLegalAttorney)
+    ) {
         text += `, zast. ${formatAttorneyText(person.attorney)}`;
     }
     return text;
