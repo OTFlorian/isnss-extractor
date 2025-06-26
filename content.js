@@ -339,7 +339,15 @@ async function extractPersonDetails(row) {
 
     const cls = new URLSearchParams(link.split('?')[1]).get('cls');
     const pId = new URLSearchParams(link.split('?')[1]).get('pId');
+
+    // Prefer address from the main table row
+    const rowAddress = row.querySelector('td:nth-child(4)')?.innerText.trim() || '';
+
     const personDetails = await fetchPersonDetails(cls, pId);
+    if (rowAddress) {
+        personDetails.address = rowAddress;
+    }
+
     const attorney = await fetchAttorney(pId);
     return { label, type: cls === 'JRFyzickaOsobaInfo' ? 'physical' : 'legal', ...personDetails, attorney };
 }
@@ -443,9 +451,16 @@ async function fetchAttorney(pId) {
             const attorneyId = params.get('pId');
             const attorneyCls = params.get('cls');
 
+            // Prefer address from the main table row
+            const rowAddress = row.querySelector('td:nth-child(5)')?.innerText.trim() || '';
+
             if (attorneyCls === 'JRFyzickaOsobaInfo') {
                 // Attorney is a physical person, so fetch normal details
-                return await fetchPersonDetails(attorneyCls, attorneyId);
+                const details = await fetchPersonDetails(attorneyCls, attorneyId);
+                if (rowAddress) {
+                    details.address = rowAddress;
+                }
+                return details;
             } else {
                 // Attorney is a legal person (or unknown), return placeholder
                 return {
